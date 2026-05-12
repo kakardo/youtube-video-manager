@@ -1,7 +1,0 @@
-Kardos notes:
-
-Ctrl + space = Manual suggestion
-Ctrl + Alt = Show inlay hints
-
-io::println::("Du valde: {}", choice.trim());
-= Det tar bort whitespace framför och efter strängen.

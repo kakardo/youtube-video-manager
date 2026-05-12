@@ -1,0 +1,20 @@
+Kardos notes:
+
+>>> START
+- Open project -> "Open in Terminal" -> command "code ." to open VS
+
+>>> HOTKEYS
+Ctrl + space = Manual suggestion
+Ctrl + Alt = Show inlay hints
+
+io::println::("Du valde: {}", choice.trim());
+= Det tar bort whitespace framför och efter strängen.
+
+> Save mutable string
+let mut choice = String::new();
+
+// Flushes buffer
+io::stdout().flush().expect("Failed to flush stdout");
+
+// Print saved string
+io::stdin().read_line(&mut choice).expect("Failed to read line");
