@@ -16,5 +16,9 @@ let mut choice = String::new();
 // Flushes buffer
 io::stdout().flush().expect("Failed to flush stdout");
 
+// Save input
+io::stdin().read_line(&mut choice).expect("Failed to read line");
+- Always adds a '\n' at the end
+
 // Print saved string
 io::stdin().read_line(&mut choice).expect("Failed to read line");
