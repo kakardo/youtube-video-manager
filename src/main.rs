@@ -22,12 +22,12 @@ fn main() {
 
     while choice.trim() != "3" {
         print_menu();
-        get_user_choice(&mut choice);
+        get_menu_choice(&mut choice);
     
         // String match
         match choice.trim() {
             "1" => show_video_list(&videos),
-            "2" => println!("Mark video as watched"),
+            "2" => watched_video_toggle(),
             "3" => println!("Exit"),
             _ => println!("Invalid option!"),
         }
@@ -43,18 +43,22 @@ fn print_menu() {
     println!("(3) Exit");
 }
 
-fn get_user_choice(choice: &mut String) {
-    choice.clear(); // remove previous option
+// Gets users choice
+fn get_menu_choice(choice: &mut String) {
     print!("Option: ");
-    
+    get_input(choice);
+    //println!("You wrote: {}", choice.trim());
+}
+
+fn get_input(input: &mut String) {
+    input.clear(); // remove previous option
     io::stdout()
         .flush()
         .expect("Failed to flush stdout");
         
     io::stdin()
-    .read_line(choice)
+    .read_line(input)
     .expect("Failed to read line");
-    //println!("You wrote: {}", choice.trim());
 }
 
 // Shows video URL:s contained in array
@@ -64,4 +68,12 @@ fn show_video_list(videos: &[&str]) {
     for (index, video) in videos.iter().enumerate() {
         println!("{} {}", index, video);
     }
+}
+
+fn watched_video_toggle() {
+    println!("> Mark video as watched");
+    println!("Give index of video: ");
+
+
+
 }
