@@ -40,8 +40,8 @@ fn main() {
 
 
                 println!("> Show video");
-                for video in videos.iter() {
-                    println!("{:?}", video);
+                for (index, video) in videos.iter().enumerate() {
+                    println!("{} {}", index, video);
                 }
             }
             "2" => println!("Mark video as watched"),
