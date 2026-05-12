@@ -12,29 +12,18 @@ fn main() {
         "https://www.youtube.com/watch?v=s-mOy8VUEBk",
         "https://www.youtube.com/watch?v=e1ozCWyUlCg",
         "https://www.youtube.com/watch?v=hcxwTgEC7IM",
-    ];
-
-    let mut _watched = [
+        ];
+        
+    let mut watched = [
         false, false, false, false, false, false
     ];
-
+        
     let mut choice = String::new();
 
     while choice.trim() != "3" {
         print_menu();
-        
-        choice.clear(); // remove previous option
-        print!("Option: ");
-        
-        io::stdout()
-            .flush()
-            .expect("Failed to flush stdout");
-            
-        io::stdin()
-        .read_line(&mut choice)
-        .expect("Failed to read line");
-        //println!("You wrote: {}", choice.trim());d
-        
+        get_user_choice(&mut choice);
+    
         // String match
         match choice.trim() {
             "1" => show_video_list(&videos),
@@ -46,7 +35,7 @@ fn main() {
     
 }
 
-
+// Prints the program menu
 fn print_menu() {
     println!("\nVIDEO MANAGER MENU");
     println!("(1) Show video");
@@ -54,6 +43,21 @@ fn print_menu() {
     println!("(3) Exit");
 }
 
+fn get_user_choice(choice: &mut String) {
+    choice.clear(); // remove previous option
+    print!("Option: ");
+    
+    io::stdout()
+        .flush()
+        .expect("Failed to flush stdout");
+        
+    io::stdin()
+    .read_line(choice)
+    .expect("Failed to read line");
+    //println!("You wrote: {}", choice.trim());
+}
+
+// Shows video URL:s contained in array
 fn show_video_list(videos: &[&str]) {
     println!("> Show video");
     

@@ -42,3 +42,6 @@ https://www.youtube.com/watch?v=hcxwTgEC7IM
 let mut watched = [false, false, false];
 mark_watched(&mut watched);
 fn mark_watched(watched: &mut [bool])
+
+String is growable/editable text, so read_line() needs &mut String.
+&str is only a borrowed view of text, so you can read from it, but not clear() it or fill it with input.
