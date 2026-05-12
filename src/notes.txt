@@ -33,3 +33,12 @@ https://www.youtube.com/watch?v=e1ozCWyUlCg
 https://www.youtube.com/watch?v=hcxwTgEC7IM
 
 {:?} means “debug print this value.”
+
+>>> ARRAYS
+&[&str] = Send a reference to the array (not the whole thing)
+[&str; 6] = send in whole array with first 6 indexes
+
+>>> Cant change objects in fn without "mut"
+let mut watched = [false, false, false];
+mark_watched(&mut watched);
+fn mark_watched(watched: &mut [bool])

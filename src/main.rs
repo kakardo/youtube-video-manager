@@ -21,21 +21,18 @@ fn main() {
     let mut choice = String::new();
 
     while choice.trim() != "3" {
-        println!("\nVIDEO MANAGER MENU");
-        println!("(1) Show video");
-        println!("(2) Mark video as watched");
-        println!("(3) Exit");
-
+        print_menu();
+        
         choice.clear(); // remove previous option
         print!("Option: ");
         
         io::stdout()
             .flush()
             .expect("Failed to flush stdout");
-    
+            
         io::stdin()
-            .read_line(&mut choice)
-            .expect("Failed to read line");
+        .read_line(&mut choice)
+        .expect("Failed to read line");
         //println!("You wrote: {}", choice.trim());d
         
         // String match
@@ -46,7 +43,15 @@ fn main() {
             _ => println!("Invalid option!"),
         }
     }
+    
+}
 
+
+fn print_menu() {
+    println!("\nVIDEO MANAGER MENU");
+    println!("(1) Show video");
+    println!("(2) Mark video as watched");
+    println!("(3) Exit");
 }
 
 fn show_video_list(videos: &[&str]) {
