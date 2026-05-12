@@ -14,6 +14,10 @@ fn main() {
         "https://www.youtube.com/watch?v=hcxwTgEC7IM",
     ];
 
+    let mut _watched = [
+        false, false, false, false, false, false
+    ];
+
     let mut choice = String::new();
 
     while choice.trim() != "3" {
@@ -36,18 +40,19 @@ fn main() {
         
         // String match
         match choice.trim() {
-            "1" => {
-
-
-                println!("> Show video");
-                for (index, video) in videos.iter().enumerate() {
-                    println!("{} {}", index, video);
-                }
-            }
+            "1" => show_video_list(&videos),
             "2" => println!("Mark video as watched"),
             "3" => println!("Exit"),
             _ => println!("Invalid option!"),
         }
     }
 
+}
+
+fn show_video_list(videos: &[&str]) {
+    println!("> Show video");
+    
+    for (index, video) in videos.iter().enumerate() {
+        println!("{} {}", index, video);
+    }
 }
