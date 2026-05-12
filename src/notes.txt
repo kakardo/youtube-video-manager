@@ -22,3 +22,13 @@ io::stdin().read_line(&mut choice).expect("Failed to read line");
 
 // Print saved string
 io::stdin().read_line(&mut choice).expect("Failed to read line");
+
+If you know you are not using the variable yet, you can name it with "_" in the beginning to silence the warning.
+
+
+https://www.youtube.com/watch?v=bLHL75H_VEM
+https://www.youtube.com/watch?v=u3CKgkyc7Qo
+https://www.youtube.com/watch?v=dxIPcbmo1_U
+https://www.youtube.com/watch?v=s-mOy8VUEBk
+https://www.youtube.com/watch?v=e1ozCWyUlCg
+https://www.youtube.com/watch?v=hcxwTgEC7IM

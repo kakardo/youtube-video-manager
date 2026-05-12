@@ -1,7 +1,19 @@
 use std::io;
 use std::io::Write;
 
+
+
+
 fn main() {
+    let videos = [
+        "https://www.youtube.com/watch?v=bLHL75H_VEM",
+        "https://www.youtube.com/watch?v=u3CKgkyc7Qo",
+        "https://www.youtube.com/watch?v=dxIPcbmo1_U",
+        "https://www.youtube.com/watch?v=s-mOy8VUEBk",
+        "https://www.youtube.com/watch?v=e1ozCWyUlCg",
+        "https://www.youtube.com/watch?v=hcxwTgEC7IM",
+    ];
+
     let mut choice = String::new();
 
     while choice.trim() != "3" {
@@ -24,7 +36,14 @@ fn main() {
         
         // String match
         match choice.trim() {
-            "1" => println!("Show video"),
+            "1" => {
+
+
+                println!("> Show video");
+                for video in videos.iter() {
+                    println!("{:?}", video);
+                }
+            }
             "2" => println!("Mark video as watched"),
             "3" => println!("Exit"),
             _ => println!("Invalid option!"),
