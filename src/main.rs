@@ -1,9 +1,6 @@
 use std::io;
 use std::io::Write;
 
-
-
-
 fn main() {
     let videos = [
         "https://www.youtube.com/watch?v=bLHL75H_VEM",
@@ -27,12 +24,11 @@ fn main() {
         // String match
         match choice.trim() {
             "1" => show_video_list(&videos),
-            "2" => watched_video_toggle(),
+            "2" => watched_video_toggle(&videos, &mut watched),
             "3" => println!("Exit"),
             _ => println!("Invalid option!"),
         }
     }
-    
 }
 
 // Prints the program menu
@@ -70,10 +66,19 @@ fn show_video_list(videos: &[&str]) {
     }
 }
 
-fn watched_video_toggle() {
+fn watched_video_toggle(videos: &[&str], watched: &mut [bool]) {
     println!("> Mark video as watched");
-    println!("Give index of video: ");
 
+    let mut video_index = String::new();
+    print!("Give index of video: ");
+    get_input(&mut video_index);
 
+    let i: usize = video_index
+        .trim()
+        .parse()
+        .expect("Index conversion error: String -> usize");
+    println!("{:?} {:?}", videos[i], watched[i]);
 
+    watched[i] = !watched[i];
+    println!("Toggling watched status: {}", watched[i]);
 }
