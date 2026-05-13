@@ -86,7 +86,7 @@ fn watched_video_toggle(videos: &[&str], watched: &mut [bool]) {
         }
     };
 
-    if i >= videos.len() || i < 0 {
+    if i >= videos.len() {
         println!("No index match: {}", i);
         return;
     }
