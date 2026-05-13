@@ -23,7 +23,7 @@ fn main() {
     
         // String match
         match choice.trim() {
-            "1" => show_video_list(&videos),
+            "1" => list_unwatched_videos(&videos, &watched),
             "2" => watched_video_toggle(&videos, &mut watched),
             "3" => println!("Exit"),
             _ => println!("Invalid option!"),
@@ -58,11 +58,14 @@ fn get_input(input: &mut String) {
 }
 
 // Shows video URL:s contained in array
-fn show_video_list(videos: &[&str]) {
+fn list_unwatched_videos(videos: &[&str], watched: &[bool]) {
     println!("> Show video");
     
     for (index, video) in videos.iter().enumerate() {
-        println!("{} {}", index, video);
+        if !watched[index] {
+            println!("{} {}", index, video);
+        }
+        
     }
 }
 
@@ -77,7 +80,7 @@ fn watched_video_toggle(videos: &[&str], watched: &mut [bool]) {
     // Needs match to return a usize
     let i: usize = match video_index.trim().parse::<usize>() {
         Ok(is_valid) => {
-            println!("Valid <usize> recieved: {}", is_valid);
+            println!("Valid <usize> received: {}", is_valid);
             is_valid
         }
         Err(_) => {
