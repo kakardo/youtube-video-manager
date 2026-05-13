@@ -73,12 +73,25 @@ fn watched_video_toggle(videos: &[&str], watched: &mut [bool]) {
     print!("Give index of video: ");
     get_input(&mut video_index);
 
-    let i: usize = video_index
-        .trim()
-        .parse()
-        .expect("Index conversion error: String -> usize");
-    println!("{:?} {:?}", videos[i], watched[i]);
+    // Checks if its fit to be usize, or not
+    // Needs match to return a usize
+    let i: usize = match video_index.trim().parse::<usize>() {
+        Ok(is_valid) => {
+            println!("Valid <usize> recieved: {}", is_valid);
+            is_valid
+        }
+        Err(_) => {
+            println!("Not a valid index: {}", video_index);
+            return;
+        }
+    };
 
+    if i >= videos.len() || i < 0 {
+        println!("No index match: {}", i);
+        return;
+    }
+
+    println!("{:?} {:?}", videos[i], watched[i]);
     watched[i] = !watched[i];
     println!("Toggling watched status: {}", watched[i]);
 }

@@ -45,3 +45,15 @@ fn mark_watched(watched: &mut [bool])
 
 String is growable/editable text, so read_line() needs &mut String.
 &str is only a borrowed view of text, so you can read from it, but not clear() it or fill it with input.
+
+>>> PARSE
+match video_index.trim().parse::<usize>() {
+    Ok(number) => println!("Number is {}", number),
+    Err(_) => println!("Not a valid number"),
+}
+"_" means you dont care what kind of value the error has.
+Ok(value)   -> success
+Err(error)  -> failure
+
+.expect(...) means:
+        If parsing fails, crash the program with this message.
