@@ -97,4 +97,11 @@ fn watched_video_toggle(videos: &[&str], watched: &mut [bool]) {
     println!("{:?} {:?}", videos[i], watched[i]);
     watched[i] = !watched[i];
     println!("Toggling watched status: {}", watched[i]);
+
+    if watched[i] {
+        println!("Marked as watched: {}", videos[i]);
+    } else {
+        println!("Marked as unwatched: {}", videos[i]);
+    }
+
 }
