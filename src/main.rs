@@ -1,7 +1,16 @@
 use std::io;
 use std::io::Write;
 
+struct Video {
+    title: String,
+    url: String,
+    watched: bool,
+}
+
 fn main() {
+
+
+
     let videos = [
         "https://www.youtube.com/watch?v=bLHL75H_VEM",
         "https://www.youtube.com/watch?v=u3CKgkyc7Qo",
